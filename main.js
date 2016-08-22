@@ -6,13 +6,16 @@ const { Employee } = require('./Employee')
 
 const employee =
   Employee
-    .parseFromFilePath(
-      path.resolve(__dirname, 'employee.json')
+    .parseFromFilePath2(
+      path.resolve(__dirname, 'employees.json')
     )
 
-console.log(`is Employee? ${employee instanceof Employee}`)
-console.log(`parsed: ${util.inspect(employee)}`)
+employee.forEach(employee => {
+  console.log(`is Employee? ${employee instanceof Employee}`)
+  console.log(`parsed: ${util.inspect(employee)}`)
 
-employee.promote('chief petty grunt', 10)
+  employee.promote('chief petty grunt', 10)
 
-console.log(`after promotion: ${util.inspect(employee)}`)
+  console.log(`after promotion: ${util.inspect(employee)}`)
+}
+)
